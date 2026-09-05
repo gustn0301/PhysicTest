@@ -21,9 +21,9 @@
     --accent-light-soft:#FFD98A;
     --accent-current:#4FD8CE;
     --accent-power:#E8664B;
+    --accent-mpp:#C792EA;
     --lcd-bg:#0C1B16;
     --lcd-text:#6DF0C9;
-    --lcd-text-dim:#245244;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -34,197 +34,87 @@
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
-  .page{
-    max-width:1080px;
-    margin:0 auto;
-    padding:36px 20px 64px;
-  }
-  header{
-    margin-bottom:28px;
-  }
-  .eyebrow{
-    color:var(--accent-light);
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:0.02em;
-    margin:0 0 8px;
-  }
-  h1{
-    font-size:clamp(24px, 4vw, 32px);
-    font-weight:700;
-    margin:0 0 10px;
-    letter-spacing:-0.01em;
-  }
-  header p{
-    color:var(--text-muted);
-    max-width:62ch;
-    margin:0;
-    font-size:15px;
-  }
-  h2{
-    font-size:15px;
-    font-weight:600;
-    margin:0 0 16px;
-    color:var(--text);
-  }
-  .panel{
-    background:var(--panel);
-    border:1px solid var(--panel-border);
-    border-radius:14px;
-    padding:22px;
-  }
-  .layout{
-    display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:18px;
-    margin-bottom:18px;
-    align-items:stretch;
-  }
-  @media (max-width:820px){
-    .layout{grid-template-columns:1fr;}
-  }
+  .page{max-width:1120px;margin:0 auto;padding:36px 20px 64px;}
+  header{margin-bottom:28px;}
+  .eyebrow{color:var(--accent-light);font-size:13px;font-weight:600;letter-spacing:0.02em;margin:0 0 8px;}
+  h1{font-size:clamp(24px, 4vw, 32px);font-weight:700;margin:0 0 10px;letter-spacing:-0.01em;}
+  header p{color:var(--text-muted);max-width:68ch;margin:0;font-size:15px;}
+  h2{font-size:15px;font-weight:600;margin:0 0 16px;color:var(--text);}
+  .panel{background:var(--panel);border:1px solid var(--panel-border);border-radius:14px;padding:22px;}
+  .layout{display:grid;grid-template-columns:1.15fr 0.85fr;gap:18px;margin-bottom:18px;align-items:stretch;}
+  @media (max-width:820px){.layout{grid-template-columns:1fr;}}
 
-  /* --- diagram --- */
   .diagram-panel svg{width:100%;height:auto;display:block;}
-  .diagram-caption{
-    color:var(--text-faint);
-    font-size:12.5px;
-    margin:14px 2px 0;
-  }
+  .diagram-caption{color:var(--text-faint);font-size:12.5px;margin:14px 2px 0;}
 
-  /* --- controls --- */
   .control{margin-bottom:22px;}
   .control:last-of-type{margin-bottom:0;}
-  .control label{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    font-size:13.5px;
-    color:var(--text-muted);
-    margin-bottom:10px;
-  }
-  .control label span{
-    font-family:'IBM Plex Mono', monospace;
-    color:var(--text);
-    font-size:14px;
-    font-weight:600;
-  }
-  input[type=range]{
-    -webkit-appearance:none;
-    width:100%;
-    height:4px;
-    border-radius:2px;
-    background:var(--panel-border);
-    outline:none;
-  }
-  input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none;
-    width:18px;height:18px;border-radius:50%;
-    background:var(--accent-current);
-    border:3px solid var(--panel);
-    box-shadow:0 0 0 1px var(--panel-border);
-    cursor:pointer;
-    margin-top:-7px;
-  }
+  .control label{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;color:var(--text-muted);margin-bottom:10px;gap:10px;}
+  .control label span{font-family:'IBM Plex Mono', monospace;color:var(--text);font-size:13.5px;font-weight:600;text-align:right;}
+  input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;background:var(--panel-border);outline:none;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent-current);border:3px solid var(--panel);box-shadow:0 0 0 1px var(--panel-border);cursor:pointer;margin-top:-7px;}
   #lightRange::-webkit-slider-thumb{background:var(--accent-light);}
-  input[type=range]::-moz-range-thumb{
-    width:14px;height:14px;border-radius:50%;
-    background:var(--accent-current);border:3px solid var(--panel);cursor:pointer;
-  }
+  input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--accent-current);border:3px solid var(--panel);cursor:pointer;}
   #lightRange::-moz-range-thumb{background:var(--accent-light);}
   input[type=range]:focus-visible{outline:2px solid var(--accent-current);outline-offset:4px;}
 
-  .readout-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:26px;
-  }
-  .readout{
-    background:var(--lcd-bg);
-    border:1px solid #17332a;
-    border-radius:10px;
-    padding:14px 14px 12px;
-  }
-  .readout-label{
-    display:block;
-    font-size:11.5px;
-    color:#4c8f7c;
-    margin-bottom:6px;
-  }
-  .readout-value{
-    display:block;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:20px;
-    font-weight:600;
-    color:var(--lcd-text);
-    letter-spacing:0.01em;
-  }
+  .readout-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px;}
+  .readout{background:var(--lcd-bg);border:1px solid #17332a;border-radius:10px;padding:14px 14px 12px;}
+  .readout-label{display:block;font-size:11.5px;color:#4c8f7c;margin-bottom:6px;}
+  .readout-value{display:block;font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:var(--lcd-text);letter-spacing:0.01em;}
 
-  /* --- power panel --- */
+  details.info-panel{margin-bottom:18px;}
+  details.info-panel summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--text);list-style:none;display:flex;align-items:center;gap:8px;}
+  details.info-panel summary::-webkit-details-marker{display:none;}
+  details.info-panel summary::before{content:"▸";color:var(--accent-current);transition:transform .15s ease;font-size:12px;}
+  details.info-panel[open] summary::before{transform:rotate(90deg);}
+  .info-body{margin-top:18px;display:grid;grid-template-columns:220px 1fr;gap:24px;}
+  @media (max-width:720px){.info-body{grid-template-columns:1fr;}}
+  .info-body svg{width:100%;height:auto;}
+  .eq-text{font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--accent-light-soft);background:var(--panel-2);border:1px solid var(--panel-border);border-radius:8px;padding:12px 14px;margin:0 0 14px;line-height:1.7;}
+  .param-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .param-table td{padding:5px 8px;border-bottom:1px solid var(--panel-border);color:var(--text-muted);}
+  .param-table td:first-child{color:var(--text);font-family:'IBM Plex Mono',monospace;width:38%;}
+  .param-table td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--text);}
+  .info-note{font-size:12.5px;color:var(--text-faint);margin:12px 0 0;}
+
   .power-panel{margin-bottom:18px;}
-  .power-layout{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:26px;
-    align-items:center;
-  }
-  @media (max-width:820px){
-    .power-layout{grid-template-columns:1fr;}
-  }
-  .formula-main{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:22px;
-    font-weight:600;
-    color:var(--text-muted);
-    margin:0 0 10px;
-  }
-  .formula-sub{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:15px;
-    color:var(--text);
-    margin:0 0 18px;
-    word-break:break-word;
-  }
-  .power-big{
-    margin:0;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:44px;
-    font-weight:700;
-    color:var(--accent-power);
-    line-height:1;
-  }
-  .power-big span{
-    font-size:18px;
-    font-weight:600;
-    color:var(--text-muted);
-    margin-left:8px;
-  }
+  .power-top{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:center;margin-bottom:22px;}
+  @media (max-width:820px){.power-top{grid-template-columns:1fr;}}
+  .formula-main{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--text-muted);margin:0 0 10px;}
+  .formula-sub{font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--text);margin:0 0 16px;word-break:break-word;}
+  .power-big{margin:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:44px;font-weight:700;color:var(--accent-power);line-height:1;}
+  .power-big span{font-size:18px;font-weight:600;color:var(--text-muted);margin-left:8px;}
+  .mpp-note{font-size:13px;color:var(--text-muted);margin:0;}
+  .mpp-note b{color:var(--accent-mpp);font-weight:600;}
+  .mpp-bar{height:6px;border-radius:3px;background:var(--panel-border);margin:10px 0 12px;overflow:hidden;}
+  .mpp-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent-power),var(--accent-mpp));border-radius:3px;transition:width .1s linear;}
+
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  @media (max-width:560px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat-card{background:var(--panel-2);border:1px solid var(--panel-border);border-radius:10px;padding:12px 10px;text-align:center;}
+  .stat-label{display:block;font-size:11px;color:var(--text-faint);margin-bottom:6px;}
+  .stat-value{display:block;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:var(--text);}
+
+  .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media (max-width:820px){.charts-row{grid-template-columns:1fr;}}
+  .chart-block h3{font-size:12.5px;font-weight:600;color:var(--text-muted);margin:0 0 10px;}
   .chart-wrap svg{width:100%;height:auto;display:block;}
-  .chart-legend{
-    display:flex;
-    gap:18px;
-    margin-top:10px;
-    font-size:12px;
-    color:var(--text-muted);
-  }
+  .chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:11.5px;color:var(--text-muted);}
   .chart-legend span{display:flex;align-items:center;gap:6px;}
   .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dash{width:14px;height:2px;display:inline-block;}
 
-  footer{
-    color:var(--text-faint);
-    font-size:12.5px;
-    margin-top:8px;
-  }
+  footer{color:var(--text-faint);font-size:12.5px;margin-top:8px;}
 </style>
 </head>
 <body>
 <div class="page">
 
   <header>
-    <p class="eyebrow">태양전지 광기전력 실험</p>
+    <p class="eyebrow">태양전지 광기전력 실험 · 단일 다이오드 모델</p>
     <h1>어둠상자 태양전지 · 가변저항 실험</h1>
-    <p>어둠상자 위 구멍으로 들어오는 빛의 세기와, 회로에 연결된 가변저항 값을 각각 조절하면서 태양전지가 만들어내는 전압(V)과 전류(I), 그리고 소비 전력(P)이 어떻게 달라지는지 관찰해보세요.</p>
+    <p>어둠상자 위 구멍으로 들어오는 빛(일사량)과 회로에 연결된 가변저항 값을 조절하면서, 태양전지의 전압(V)·전류(I)·소비전력(P)이 어떻게 달라지는지 살펴봅니다. 태양전지는 이상적인 전류원이 아니라 직렬저항 R<sub>s</sub>와 누설(병렬)저항 R<sub>sh</sub>를 가진 실제 다이오드 등가회로로 계산됩니다.</p>
   </header>
 
   <div class="layout">
@@ -237,8 +127,6 @@
             <stop offset="100%" stop-color="#F4A93B" stop-opacity="0.15"/>
           </linearGradient>
         </defs>
-
-        <!-- sun -->
         <g id="sun">
           <circle cx="300" cy="14" r="9" fill="var(--accent-light)"/>
           <g stroke="var(--accent-light)" stroke-width="2" stroke-linecap="round">
@@ -249,11 +137,7 @@
             <line x1="278" y1="14" x2="271" y2="14"/>
           </g>
         </g>
-
-        <!-- light beam through hole -->
         <polygon id="beam" points="282,32 318,32 344,150 256,150" fill="url(#beamGrad)"/>
-
-        <!-- dark box walls (with a hole gap at the top) -->
         <g stroke="#3A3F4A" stroke-width="2.5" stroke-linecap="round" fill="none">
           <line x1="170" y1="32" x2="282" y2="32"/>
           <line x1="318" y1="32" x2="430" y2="32"/>
@@ -263,8 +147,6 @@
           <line x1="330" y1="230" x2="430" y2="230"/>
         </g>
         <text x="180" y="24" fill="var(--text-faint)" font-size="11" font-family="IBM Plex Sans KR">어둠상자</text>
-
-        <!-- solar cell -->
         <rect x="255" y="150" width="90" height="32" rx="3" fill="#232830" stroke="var(--accent-light)" stroke-width="1.5"/>
         <g stroke="#2F3540" stroke-width="1">
           <line x1="285" y1="150" x2="285" y2="182"/>
@@ -272,14 +154,10 @@
           <line x1="255" y1="166" x2="345" y2="166"/>
         </g>
         <text x="300" y="196" text-anchor="middle" fill="var(--text-muted)" font-size="11" font-family="IBM Plex Sans KR">태양전지</text>
-
-        <!-- wires from cell down through the gap, to the circuit below -->
         <g stroke="#495060" stroke-width="2" fill="none">
           <path d="M270,182 L270,260 L150,260 L150,300"/>
           <path d="M330,182 L330,260 L450,260 L450,300"/>
         </g>
-
-        <!-- rheostat (variable resistor) -->
         <g transform="translate(90,300)">
           <rect x="0" y="18" width="120" height="26" rx="4" fill="#232830" stroke="#495060" stroke-width="1.5"/>
           <path d="M6,31 l14,-9 14,18 14,-18 14,18 14,-18 14,18 14,-18 14,9" fill="none" stroke="var(--accent-current)" stroke-width="1.6"/>
@@ -288,8 +166,6 @@
           <text x="60" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="11" font-family="IBM Plex Sans KR">가변저항</text>
           <text id="rLabel" x="60" y="74" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600" font-family="IBM Plex Mono">100 Ω</text>
         </g>
-
-        <!-- multimeter (voltmeter across the cell / ammeter in series) -->
         <g transform="translate(390,296)">
           <rect x="0" y="0" width="130" height="70" rx="8" fill="var(--lcd-bg)" stroke="#17332a" stroke-width="1.5"/>
           <text x="10" y="18" fill="#4c8f7c" font-size="10.5" font-family="IBM Plex Sans KR">멀티미터</text>
@@ -297,95 +173,207 @@
           <text id="diagI" x="10" y="58" fill="var(--lcd-text)" font-size="16" font-weight="600" font-family="IBM Plex Mono">0.00 mA</text>
         </g>
       </svg>
-      <p class="diagram-caption">태양전지 → 가변저항(직렬) → 멀티미터(전압·전류 측정)로 이어지는 회로입니다. 슬라이더를 움직이면 저항의 슬라이더(빨간 화살표) 위치와 계기판 값이 함께 바뀝니다.</p>
+      <p class="diagram-caption">태양전지 → 가변저항(직렬) → 멀티미터(전압·전류 측정)로 이어지는 회로입니다. 슬라이더를 움직이면 저항 슬라이더(빨간 화살표)와 계기판 값이 함께 바뀝니다.</p>
     </section>
 
     <section class="panel control-panel">
       <h2>변인 조절</h2>
-
       <div class="control">
-        <label for="lightRange">빛의 세기 <span id="lightValue">70%</span></label>
+        <label for="lightRange">빛의 세기 (일사량) <span id="lightValue">70% · 700 W/m²</span></label>
         <input id="lightRange" type="range" min="0" max="100" value="70" step="1" aria-label="빛의 세기 (%)">
       </div>
-
       <div class="control">
         <label for="resRange">가변저항 R <span id="resValue">100 Ω</span></label>
         <input id="resRange" type="range" min="0" max="1000" value="500" step="1" aria-label="가변저항 값">
       </div>
-
       <div class="readout-grid">
-        <div class="readout">
-          <span class="readout-label">전압 V</span>
-          <span class="readout-value" id="vValue">0.000 V</span>
-        </div>
-        <div class="readout">
-          <span class="readout-label">전류 I</span>
-          <span class="readout-value" id="iValue">0.00 mA</span>
-        </div>
+        <div class="readout"><span class="readout-label">전압 V</span><span class="readout-value" id="vValue">0.000 V</span></div>
+        <div class="readout"><span class="readout-label">전류 I</span><span class="readout-value" id="iValue">0.00 mA</span></div>
       </div>
     </section>
   </div>
 
+  <details class="info-panel panel" id="infoPanel">
+    <summary>물리 모델 자세히 보기 — 등가회로와 변수</summary>
+    <div class="info-body">
+      <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#5C616C" stroke-width="1.5" fill="none">
+          <line x1="18" y1="22" x2="170" y2="22"/>
+          <path d="M170,22 l8,-6 8,12 8,-12 8,12 8,-12 6,6" />
+          <line x1="210" y1="22" x2="234" y2="22"/>
+          <line x1="18" y1="120" x2="234" y2="120"/>
+          <line x1="18" y1="22" x2="18" y2="120"/>
+          <line x1="82" y1="22" x2="82" y2="120"/>
+          <line x1="150" y1="22" x2="150" y2="120"/>
+        </g>
+        <circle cx="18" cy="71" r="15" fill="none" stroke="var(--accent-light)" stroke-width="1.6"/>
+        <line x1="18" y1="80" x2="18" y2="62" stroke="var(--accent-light)" stroke-width="1.6"/>
+        <polygon points="14,66 22,66 18,58" fill="var(--accent-light)"/>
+        <text x="18" y="140" text-anchor="middle" font-size="11" fill="var(--accent-light-soft)" font-family="IBM Plex Mono">I_ph</text>
+        <polygon points="72,60 92,60 82,84" fill="none" stroke="var(--accent-current)" stroke-width="1.6"/>
+        <line x1="72" y1="84" x2="92" y2="84" stroke="var(--accent-current)" stroke-width="1.6"/>
+        <text x="82" y="140" text-anchor="middle" font-size="11" fill="var(--accent-current)" font-family="IBM Plex Mono">D (n)</text>
+        <path d="M150,60 l-6,4 12,6 -12,6 12,6 -12,6 6,4" stroke="var(--accent-mpp)" stroke-width="1.6" fill="none"/>
+        <text x="150" y="140" text-anchor="middle" font-size="11" fill="var(--accent-mpp)" font-family="IBM Plex Mono">R_sh</text>
+        <text x="190" y="14" text-anchor="middle" font-size="11" fill="var(--accent-power)" font-family="IBM Plex Mono">R_s</text>
+        <circle cx="234" cy="22" r="3" fill="var(--text)"/>
+        <circle cx="234" cy="120" r="3" fill="var(--text)"/>
+        <text x="246" y="18" font-size="13" fill="var(--text)" font-family="IBM Plex Mono">+</text>
+        <text x="246" y="124" font-size="13" fill="var(--text)" font-family="IBM Plex Mono">−</text>
+        <text x="130" y="148" text-anchor="middle" font-size="10.5" fill="var(--text-faint)" font-family="IBM Plex Sans KR">태양전지 5-매개변수 등가회로</text>
+      </svg>
+      <div>
+        <p class="eq-text">I = I_ph − I₀·[exp((V + I·R_s)/(n·V_T)) − 1] − (V + I·R_s)/R_sh<br>V_T = k·T / q</p>
+        <table class="param-table">
+          <tr><td>I_ph (광전류)</td><td id="pIph">—</td></tr>
+          <tr><td>I₀ (역포화전류)</td><td id="pI0">—</td></tr>
+          <tr><td>n (이상계수)</td><td id="pN">—</td></tr>
+          <tr><td>R_s (직렬저항)</td><td id="pRs">—</td></tr>
+          <tr><td>R_sh (병렬/누설저항)</td><td id="pRsh">—</td></tr>
+          <tr><td>T (절대온도)</td><td id="pT">—</td></tr>
+          <tr><td>k (볼츠만 상수)</td><td>1.380649 × 10⁻²³ J/K</td></tr>
+          <tr><td>q (전기소량)</td><td>1.602177 × 10⁻¹⁹ C</td></tr>
+          <tr><td>V_T = kT/q (열전압)</td><td id="pVt">—</td></tr>
+        </table>
+        <p class="info-note">I_ph는 일사량(빛의 세기)에 비례합니다: I_ph = I_ph,max × (G / 1000 W/m²). R_s는 리드선·전극 접촉저항, R_sh는 셀 내부 누설전류 경로를 나타내며, 두 저항 때문에 실제 I-V 곡선은 이상적인 다이오드 곡선보다 완만하게 꺾입니다.</p>
+      </div>
+    </div>
+  </details>
+
   <section class="panel power-panel">
     <h2>소비 전력 계산</h2>
-    <div class="power-layout">
+    <div class="power-top">
       <div>
         <p class="formula-main">P = V × I</p>
         <p class="formula-sub" id="formulaSub">P = 0.000 V × 0.00 mA</p>
         <p class="power-big" id="powerBig">0.00<span>mW</span></p>
+        <div class="mpp-bar"><div class="mpp-bar-fill" id="mppBarFill" style="width:0%"></div></div>
+        <p class="mpp-note" id="mppNote">현재 전력은 최대출력점(MPP) 대비 <b>0%</b>입니다. 최적 저항 ≈ <b>0 Ω</b></p>
       </div>
-      <div class="chart-wrap">
-        <svg id="ivChart" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <line x1="40" y1="10" x2="40" y2="180" stroke="#3A3F4A" stroke-width="1.5"/>
-          <line x1="40" y1="180" x2="300" y2="180" stroke="#3A3F4A" stroke-width="1.5"/>
-          <text x="170" y="205" text-anchor="middle" fill="var(--text-faint)" font-size="11" font-family="IBM Plex Sans KR">전압 V (V)</text>
-          <text x="14" y="95" fill="var(--text-faint)" font-size="11" font-family="IBM Plex Sans KR" transform="rotate(-90 14 95)">전류 I (mA)</text>
-          <path id="ivCurve" fill="none" stroke="var(--accent-light)" stroke-width="2"/>
-          <line id="loadLine" stroke="var(--accent-current)" stroke-width="2" stroke-dasharray="5,4"/>
-          <circle id="opPoint" r="5" fill="var(--accent-power)" stroke="#12141A" stroke-width="1.5"/>
-        </svg>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-label">개방전압 V_oc</span><span class="stat-value" id="statVoc">0.000 V</span></div>
+        <div class="stat-card"><span class="stat-label">단락전류 I_sc</span><span class="stat-value" id="statIsc">0.0 mA</span></div>
+        <div class="stat-card"><span class="stat-label">최대출력 P_max</span><span class="stat-value" id="statPmax">0.00 mW</span></div>
+        <div class="stat-card"><span class="stat-label">충전율 FF</span><span class="stat-value" id="statFF">0%</span></div>
+      </div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-block">
+        <h3>전류-전압(I-V) 특성곡선</h3>
+        <div class="chart-wrap">
+          <svg id="ivChart" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="40" y1="10" x2="40" y2="180" stroke="#3A3F4A" stroke-width="1.5"/>
+            <line x1="40" y1="180" x2="300" y2="180" stroke="#3A3F4A" stroke-width="1.5"/>
+            <text x="170" y="205" text-anchor="middle" fill="var(--text-faint)" font-size="11" font-family="IBM Plex Sans KR">전압 V (V)</text>
+            <text x="14" y="95" fill="var(--text-faint)" font-size="11" font-family="IBM Plex Sans KR" transform="rotate(-90 14 95)">전류 I (mA)</text>
+            <path id="ivCurve" fill="none" stroke="var(--accent-light)" stroke-width="2"/>
+            <line id="loadLine" stroke="var(--accent-current)" stroke-width="2" stroke-dasharray="5,4"/>
+            <circle id="mppPointIV" r="4" fill="none" stroke="var(--accent-mpp)" stroke-width="2"/>
+            <circle id="opPoint" r="5" fill="var(--accent-power)" stroke="#12141A" stroke-width="1.5"/>
+          </svg>
+        </div>
         <div class="chart-legend">
-          <span><i class="dot" style="background:var(--accent-light)"></i>태양전지 I-V 곡선</span>
-          <span><i class="dot" style="background:var(--accent-current)"></i>부하선 (I = V/R)</span>
+          <span><i class="dot" style="background:var(--accent-light)"></i>I-V 곡선</span>
+          <span><i class="dash" style="background:var(--accent-current)"></i>부하선 I=V/R</span>
           <span><i class="dot" style="background:var(--accent-power)"></i>동작점</span>
+          <span><i class="dot" style="background:var(--accent-mpp)"></i>MPP</span>
+        </div>
+      </div>
+      <div class="chart-block">
+        <h3>저항-전력(P-R) 특성곡선</h3>
+        <div class="chart-wrap">
+          <svg id="prChart" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="40" y1="10" x2="40" y2="180" stroke="#3A3F4A" stroke-width="1.5"/>
+            <line x1="40" y1="180" x2="300" y2="180" stroke="#3A3F4A" stroke-width="1.5"/>
+            <text x="170" y="205" text-anchor="middle" fill="var(--text-faint)" font-size="11" font-family="IBM Plex Sans KR">저항 R (Ω, 로그축)</text>
+            <text x="14" y="95" fill="var(--text-faint)" font-size="11" font-family="IBM Plex Sans KR" transform="rotate(-90 14 95)">전력 P (mW)</text>
+            <path id="prCurve" fill="none" stroke="var(--accent-current)" stroke-width="2"/>
+            <line id="roptLine" stroke="var(--accent-mpp)" stroke-width="1.5" stroke-dasharray="4,4"/>
+            <circle id="roptPoint" r="4" fill="none" stroke="var(--accent-mpp)" stroke-width="2"/>
+            <circle id="prPoint" r="5" fill="var(--accent-power)" stroke="#12141A" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="chart-legend">
+          <span><i class="dot" style="background:var(--accent-current)"></i>P(R) 곡선</span>
+          <span><i class="dash" style="background:var(--accent-mpp)"></i>최적 저항 R_opt</span>
+          <span><i class="dot" style="background:var(--accent-power)"></i>현재 저항의 전력</span>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>모델: 다이오드 방정식 기반 근사 시뮬레이션 (I₀=2×10⁻⁸ A, n=1.5, 100% 조도에서 단락전류 100 mA 가정). 실제 태양전지의 사양에 따라 값은 달라질 수 있습니다.</footer>
+  <footer>모델: 5-매개변수 단일 다이오드 등가회로(I_ph, I₀, n, R_s, R_sh)로 태양전지를 근사한 시뮬레이션입니다. T=25°C(298.15K) 고정, I_ph,max=50 mA @ 1000 W/m²(AM1.5G 표준시험조건 기준)로 가정했습니다. 실제 사용 중인 태양전지의 사양(단락전류, 개방전압 등)과는 다를 수 있으니, 값 비교가 필요하면 위 "물리 모델 자세히 보기"의 변수들을 실측값에 맞게 조정해달라고 요청하세요.</footer>
 
 </div>
 
 <script>
 (function(){
-  // --- physical model constants ---
-  const I0 = 2e-8;      // saturation current (A)
-  const n  = 1.5;       // ideality factor
-  const Vt = 0.025852;  // thermal voltage kT/q (V)
-  const IscMax = 0.1;   // short-circuit current at 100% light (A)
-  const R_MIN = 1, R_MAX = 1000; // ohm
+  // ---- physical constants ----
+  const k = 1.380649e-23;   // J/K
+  const q = 1.602176634e-19; // C
+  const T = 298.15;          // K (25 C)
+  const Vt = k * T / q;      // thermal voltage (V)
 
-  function vocFor(Isc){
-    if (Isc <= 0) return 0;
-    return n * Vt * Math.log(Isc / I0 + 1);
-  }
+  // ---- solar cell model parameters (5-parameter single diode model) ----
+  const n = 1.4;         // ideality factor
+  const I0 = 1.5e-8;     // reverse saturation current (A)
+  const Rs = 0.6;        // series resistance (ohm)
+  const Rsh = 2000;      // shunt resistance (ohm)
+  const IphMax = 0.05;   // photocurrent at 1000 W/m^2 (A)
+  const G_REF = 1000;    // W/m^2, AM1.5G standard test condition
 
-  // solve for the operating point (V, I) where the solar cell curve meets the load line I = V/R
-  function solve(Isc, R){
-    if (Isc <= 0) return {V:0, I:0};
-    let lo = 0, hi = vocFor(Isc);
-    const f = (V) => Isc - I0 * (Math.exp(V / (n * Vt)) - 1) - V / R;
-    for (let k = 0; k < 100; k++){
+  const R_MIN = 1, R_MAX = 1000;       // load resistor slider range (ohm)
+  const SCAN_R_MIN = 0.2, SCAN_R_MAX = 5000; // range for R-sweep (Ropt search, P-R chart)
+
+  function cellCurrentAtVoltage(V, Iph){
+    if (Iph <= 0 && V <= 0) return 0;
+    let lo = 0, hi = Iph * 1.02 + 1e-6;
+    const f = (I) => Iph - I0 * (Math.exp((V + I*Rs) / (n*Vt)) - 1) - (V + I*Rs) / Rsh - I;
+    for (let i = 0; i < 45; i++){
       const mid = (lo + hi) / 2;
       if (f(mid) > 0) lo = mid; else hi = mid;
     }
-    const V = (lo + hi) / 2;
-    const I = V / R;
-    return {V, I};
+    return (lo + hi) / 2;
   }
 
-  // --- DOM refs ---
+  function vocFor(Iph){
+    if (Iph <= 0) return 0;
+    let lo = 0, hi = n * Vt * Math.log(Iph / I0 + 1) * 1.05 + 0.01;
+    const g = (V) => Iph - I0 * (Math.exp(V / (n*Vt)) - 1) - V / Rsh;
+    for (let i = 0; i < 45; i++){
+      const mid = (lo + hi) / 2;
+      if (g(mid) > 0) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+
+  function operatingPoint(Iph, R){
+    if (Iph <= 0) return { V:0, I:0 };
+    let lo = 0, hi = Iph * 1.02 + 1e-6;
+    const f = (I) => Iph - I0 * (Math.exp((I*(R+Rs)) / (n*Vt)) - 1) - (I*(R+Rs)) / Rsh - I;
+    for (let i = 0; i < 45; i++){
+      const mid = (lo + hi) / 2;
+      if (f(mid) > 0) lo = mid; else hi = mid;
+    }
+    const I = (lo + hi) / 2;
+    return { V: I * R, I };
+  }
+
+  function scanForMPP(Iph){
+    let bestR = SCAN_R_MIN, bestP = -1, bestV = 0, bestI = 0;
+    const N = 90;
+    const lo = Math.log(SCAN_R_MIN), hi = Math.log(SCAN_R_MAX);
+    for (let i = 0; i <= N; i++){
+      const R = Math.exp(lo + (hi - lo) * i / N);
+      const { V, I } = operatingPoint(Iph, R);
+      const P = V * I;
+      if (P > bestP){ bestP = P; bestR = R; bestV = V; bestI = I; }
+    }
+    return { Ropt: bestR, Pmax: bestP, Vmpp: bestV, Impp: bestI };
+  }
+
+  // ---- DOM refs ----
   const lightRange = document.getElementById('lightRange');
   const resRange = document.getElementById('resRange');
   const lightValue = document.getElementById('lightValue');
@@ -396,6 +384,8 @@
   const diagI = document.getElementById('diagI');
   const formulaSub = document.getElementById('formulaSub');
   const powerBig = document.getElementById('powerBig');
+  const mppNote = document.getElementById('mppNote');
+  const mppBarFill = document.getElementById('mppBarFill');
   const beam = document.getElementById('beam');
   const sun = document.getElementById('sun');
   const wiperLine = document.getElementById('wiperLine');
@@ -404,31 +394,64 @@
   const ivCurve = document.getElementById('ivCurve');
   const loadLine = document.getElementById('loadLine');
   const opPoint = document.getElementById('opPoint');
+  const mppPointIV = document.getElementById('mppPointIV');
+  const prCurve = document.getElementById('prCurve');
+  const roptLine = document.getElementById('roptLine');
+  const roptPoint = document.getElementById('roptPoint');
+  const prPoint = document.getElementById('prPoint');
+  const statVoc = document.getElementById('statVoc');
+  const statIsc = document.getElementById('statIsc');
+  const statPmax = document.getElementById('statPmax');
+  const statFF = document.getElementById('statFF');
 
-  // chart geometry
-  const chartX0 = 40, chartX1 = 300, chartY0 = 180, chartY1 = 10;
-  const xMax = vocFor(IscMax) * 1.15;     // volts, fixed axis
-  const yMax = IscMax * 1000 * 1.15;      // mA, fixed axis
-  function toPx(v){ return chartX0 + (v / xMax) * (chartX1 - chartX0); }
-  function toPy(i){ return chartY0 + (i / yMax) * (chartY1 - chartY0); }
+  // static model-parameter display (info panel)
+  document.getElementById('pIph').textContent = (IphMax*1000).toFixed(1) + ' mA (100% 일사량 기준)';
+  document.getElementById('pI0').textContent = I0.toExponential(2) + ' A';
+  document.getElementById('pN').textContent = n.toFixed(2);
+  document.getElementById('pRs').textContent = Rs.toFixed(2) + ' Ω';
+  document.getElementById('pRsh').textContent = Rsh.toFixed(0) + ' Ω';
+  document.getElementById('pT').textContent = T.toFixed(2) + ' K (25.0 °C)';
+  document.getElementById('pVt').textContent = Vt.toFixed(5) + ' V';
+
+  // ---- I-V chart geometry (fixed axes based on 100% irradiance) ----
+  const ivX0 = 40, ivX1 = 300, ivY0 = 180, ivY1 = 10;
+  const ivXMax = vocFor(IphMax) * 1.15;
+  const ivYMax = IphMax * 1000 * 1.15;
+  const ivToPx = (v) => ivX0 + (v / ivXMax) * (ivX1 - ivX0);
+  const ivToPy = (i) => ivY0 + (i / ivYMax) * (ivY1 - ivY0);
+
+  // ---- P-R chart geometry (fixed axes based on 100% irradiance) ----
+  const prX0 = 40, prX1 = 300, prY0 = 180, prY1 = 10;
+  const prFull = scanForMPP(IphMax);
+  const prYMax = prFull.Pmax * 1000 * 1.3;
+  const prLogMin = Math.log(SCAN_R_MIN), prLogMax = Math.log(SCAN_R_MAX);
+  const prToPx = (r) => prX0 + ((Math.log(r) - prLogMin) / (prLogMax - prLogMin)) * (prX1 - prX0);
+  const prToPy = (p) => prY0 + (p / prYMax) * (prY1 - prY0);
 
   function resFromSlider(val){
     const pct = val / 1000;
     return R_MIN * Math.pow(R_MAX / R_MIN, pct);
   }
-
   function formatR(r){
-    return r >= 1000 ? (r/1000).toFixed(2) + ' kΩ' : Math.round(r) + ' Ω';
+    return r >= 1000 ? (r/1000).toFixed(2) + ' kΩ' : (r >= 10 ? Math.round(r) : r.toFixed(1)) + ' Ω';
   }
 
   function update(){
     const lightPct = Number(lightRange.value);
     const R = resFromSlider(Number(resRange.value));
-    const Isc = IscMax * (lightPct / 100);
-    const { V, I } = solve(Isc, R);
+    const Iph = IphMax * (lightPct / 100);
+
+    const { V, I } = operatingPoint(Iph, R);
     const P_mW = V * (I * 1000); // V x mA = mW
 
-    lightValue.textContent = lightPct + '%';
+    const Voc = vocFor(Iph);
+    const Isc = operatingPoint(Iph, 0).I;
+    const { Ropt, Pmax, Vmpp, Impp } = scanForMPP(Iph);
+    const FF = (Voc > 0 && Isc > 0) ? (Pmax / (Voc * Isc)) : 0;
+    const pctOfMax = Pmax > 0 ? Math.min(100, (P_mW/1000) / Pmax * 100) : 0;
+
+    // --- labels ---
+    lightValue.textContent = lightPct + '% · ' + Math.round(G_REF * lightPct/100) + ' W/m²';
     resValue.textContent = formatR(R);
     rLabel.textContent = formatR(R);
 
@@ -441,42 +464,63 @@
 
     formulaSub.textContent = 'P = V × I = ' + V.toFixed(3) + ' V × ' + (I*1000).toFixed(2) + ' mA';
     powerBig.innerHTML = P_mW.toFixed(2) + '<span>mW</span>';
+    mppBarFill.style.width = pctOfMax.toFixed(1) + '%';
+    mppNote.innerHTML = '현재 전력은 최대출력점(MPP) 대비 <b>' + pctOfMax.toFixed(0) + '%</b>입니다. 최적 저항 R_opt ≈ <b>' + formatR(Ropt) + '</b>';
 
-    // diagram: sun / beam brightness
+    statVoc.textContent = Voc.toFixed(3) + ' V';
+    statIsc.textContent = (Isc*1000).toFixed(1) + ' mA';
+    statPmax.textContent = (Pmax*1000).toFixed(2) + ' mW';
+    statFF.textContent = (FF*100).toFixed(1) + '%';
+
+    // --- diagram: sun / beam brightness ---
     beam.setAttribute('opacity', (0.05 + 0.9 * (lightPct/100)).toFixed(2));
     sun.setAttribute('opacity', (0.25 + 0.75 * (lightPct/100)).toFixed(2));
 
-    // diagram: rheostat wiper position (0..1 across slider range)
+    // --- diagram: rheostat wiper position ---
     const wiperPct = Number(resRange.value) / 1000;
     const wx = 6 + wiperPct * 108;
     wiperLine.setAttribute('x1', wx); wiperLine.setAttribute('x2', wx);
     wiperHead.setAttribute('points', (wx-5)+',6 '+(wx+5)+',6 '+wx+',-2');
 
-    // I-V curve for the current light level
+    // --- I-V curve (intrinsic cell curve, independent of load) ---
     let d = '';
     const steps = 60;
     for (let s = 0; s <= steps; s++){
-      const v = (xMax * s) / steps;
-      let iv = Isc - I0 * (Math.exp(v / (n*Vt)) - 1);
-      iv = Math.max(0, iv) * 1000; // mA
-      const px = toPx(v), py = toPy(Math.min(iv, yMax));
+      const v = (ivXMax * s) / steps;
+      const iv = Math.max(0, cellCurrentAtVoltage(v, Iph)) * 1000; // mA
+      const px = ivToPx(v), py = ivToPy(Math.min(iv, ivYMax));
       d += (s === 0 ? 'M' : 'L') + px.toFixed(1) + ',' + py.toFixed(1) + ' ';
     }
     ivCurve.setAttribute('d', d.trim());
 
-    // load line I = V/R, clipped to chart bounds
-    let vEnd = xMax;
-    let iEndmA = (vEnd / R) * 1000;
-    if (iEndmA > yMax){
-      iEndmA = yMax;
-      vEnd = (yMax / 1000) * R;
-    }
-    loadLine.setAttribute('x1', toPx(0)); loadLine.setAttribute('y1', toPy(0));
-    loadLine.setAttribute('x2', toPx(vEnd)); loadLine.setAttribute('y2', toPy(iEndmA));
+    let vEnd = ivXMax, iEndmA = (vEnd / R) * 1000;
+    if (iEndmA > ivYMax){ iEndmA = ivYMax; vEnd = (ivYMax/1000) * R; }
+    loadLine.setAttribute('x1', ivToPx(0)); loadLine.setAttribute('y1', ivToPy(0));
+    loadLine.setAttribute('x2', ivToPx(vEnd)); loadLine.setAttribute('y2', ivToPy(iEndmA));
 
-    // operating point
-    opPoint.setAttribute('cx', toPx(V));
-    opPoint.setAttribute('cy', toPy(Math.min(I*1000, yMax)));
+    opPoint.setAttribute('cx', ivToPx(V));
+    opPoint.setAttribute('cy', ivToPy(Math.min(I*1000, ivYMax)));
+    mppPointIV.setAttribute('cx', ivToPx(Vmpp));
+    mppPointIV.setAttribute('cy', ivToPy(Math.min(Impp*1000, ivYMax)));
+
+    // --- P-R curve ---
+    let dpr = '';
+    const stepsPR = 70;
+    for (let s = 0; s <= stepsPR; s++){
+      const r = Math.exp(prLogMin + (prLogMax - prLogMin) * s / stepsPR);
+      const op = operatingPoint(Iph, r);
+      const p = Math.min(op.V * op.I * 1000, prYMax);
+      const px = prToPx(r), py = prToPy(p);
+      dpr += (s === 0 ? 'M' : 'L') + px.toFixed(1) + ',' + py.toFixed(1) + ' ';
+    }
+    prCurve.setAttribute('d', dpr.trim());
+
+    roptLine.setAttribute('x1', prToPx(Ropt)); roptLine.setAttribute('y1', prToPy(0));
+    roptLine.setAttribute('x2', prToPx(Ropt)); roptLine.setAttribute('y2', prToPy(Math.min(Pmax*1000, prYMax)));
+    roptPoint.setAttribute('cx', prToPx(Ropt));
+    roptPoint.setAttribute('cy', prToPy(Math.min(Pmax*1000, prYMax)));
+    prPoint.setAttribute('cx', prToPx(R));
+    prPoint.setAttribute('cy', prToPy(Math.min(P_mW, prYMax)));
   }
 
   lightRange.addEventListener('input', update);
